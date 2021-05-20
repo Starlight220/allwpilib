@@ -40,15 +40,11 @@ public class ProfiledPIDCommand extends CommandBase {
       Supplier<State> goalSource,
       BiConsumer<Double, State> useOutput,
       Subsystem... requirements) {
-    requireNonNullParam(controller, "controller", "SynchronousPIDCommand");
-    requireNonNullParam(measurementSource, "measurementSource", "SynchronousPIDCommand");
-    requireNonNullParam(goalSource, "goalSource", "SynchronousPIDCommand");
-    requireNonNullParam(useOutput, "useOutput", "SynchronousPIDCommand");
+    m_controller = requireNonNullParam(controller, "controller", "ProfiledPIDCommand");
+    m_measurement = requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
+    m_goal = requireNonNullParam(goalSource, "setpointSource", "ProfiledPIDCommand");
+    m_useOutput = requireNonNullParam(useOutput, "useOutput", "ProfiledPIDCommand");
 
-    m_controller = controller;
-    m_useOutput = useOutput;
-    m_measurement = measurementSource;
-    m_goal = goalSource;
     m_requirements.addAll(Set.of(requirements));
   }
 
@@ -68,15 +64,13 @@ public class ProfiledPIDCommand extends CommandBase {
       DoubleSupplier goalSource,
       BiConsumer<Double, State> useOutput,
       Subsystem... requirements) {
-    requireNonNullParam(controller, "controller", "SynchronousPIDCommand");
-    requireNonNullParam(measurementSource, "measurementSource", "SynchronousPIDCommand");
-    requireNonNullParam(goalSource, "goalSource", "SynchronousPIDCommand");
-    requireNonNullParam(useOutput, "useOutput", "SynchronousPIDCommand");
 
-    m_controller = controller;
-    m_useOutput = useOutput;
-    m_measurement = measurementSource;
+    m_controller = requireNonNullParam(controller, "controller", "ProfiledPIDCommand");
+    m_measurement = requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
+    requireNonNullParam(goalSource, "goalSource", "ProfiledPIDCommand");
     m_goal = () -> new State(goalSource.getAsDouble(), 0);
+    m_useOutput = requireNonNullParam(useOutput, "useOutput", "ProfiledPIDCommand");
+
     m_requirements.addAll(Set.of(requirements));
   }
 

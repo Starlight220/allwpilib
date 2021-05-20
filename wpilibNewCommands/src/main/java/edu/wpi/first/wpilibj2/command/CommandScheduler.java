@@ -16,16 +16,11 @@ import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
+import java.util.*;
 import java.util.function.Consumer;
+
+import static edu.wpi.first.wpiutil.ErrorMessages.requireNonNullParam;
 
 /**
  * The scheduler responsible for running {@link Command}s. A Command-based robot should call {@link
@@ -159,6 +154,8 @@ public final class CommandScheduler implements Sendable, AutoCloseable {
    */
   @SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity"})
   private void schedule(boolean interruptible, Command command) {
+    requireNonNullParam(command, "command", "CommandScheduler.schedule");
+
     if (m_inRunLoop) {
       m_toSchedule.put(command, interruptible);
       return;
@@ -357,6 +354,7 @@ public final class CommandScheduler implements Sendable, AutoCloseable {
    * @param defaultCommand the default command to associate with the subsystem
    */
   public void setDefaultCommand(Subsystem subsystem, Command defaultCommand) {
+    requireNonNullParam(subsystem, "defaultCommand","setDefaultCommand");
     if (!defaultCommand.getRequirements().contains(subsystem)) {
       throw new IllegalArgumentException("Default commands must require their subsystem!");
     }

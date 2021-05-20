@@ -110,18 +110,14 @@ public class MecanumControllerCommand extends CommandBase {
 
     m_controller =
         new HolonomicDriveController(
-            requireNonNullParam(xController, "xController", "SwerveControllerCommand"),
-            requireNonNullParam(yController, "xController", "SwerveControllerCommand"),
-            requireNonNullParam(thetaController, "thetaController", "SwerveControllerCommand"));
+            requireNonNullParam(xController, "xController", "MecanumControllerCommand"),
+            requireNonNullParam(yController, "yController", "MecanumControllerCommand"),
+            requireNonNullParam(thetaController, "thetaController", "MecanumControllerCommand"));
 
     m_desiredRotation =
         requireNonNullParam(desiredRotation, "desiredRotation", "MecanumControllerCommand");
 
-    m_maxWheelVelocityMetersPerSecond =
-        requireNonNullParam(
-            maxWheelVelocityMetersPerSecond,
-            "maxWheelVelocityMetersPerSecond",
-            "MecanumControllerCommand");
+    m_maxWheelVelocityMetersPerSecond = maxWheelVelocityMetersPerSecond;
 
     m_frontLeftController =
         requireNonNullParam(frontLeftController, "frontLeftController", "MecanumControllerCommand");
@@ -254,18 +250,14 @@ public class MecanumControllerCommand extends CommandBase {
 
     m_controller =
         new HolonomicDriveController(
-            requireNonNullParam(xController, "xController", "SwerveControllerCommand"),
-            requireNonNullParam(yController, "xController", "SwerveControllerCommand"),
-            requireNonNullParam(thetaController, "thetaController", "SwerveControllerCommand"));
+            requireNonNullParam(xController, "xController", "MecanumControllerCommand"),
+            requireNonNullParam(yController, "yController", "MecanumControllerCommand"),
+            requireNonNullParam(thetaController, "thetaController", "MecanumControllerCommand"));
 
     m_desiredRotation =
         requireNonNullParam(desiredRotation, "desiredRotation", "MecanumControllerCommand");
 
-    m_maxWheelVelocityMetersPerSecond =
-        requireNonNullParam(
-            maxWheelVelocityMetersPerSecond,
-            "maxWheelVelocityMetersPerSecond",
-            "MecanumControllerCommand");
+    m_maxWheelVelocityMetersPerSecond = maxWheelVelocityMetersPerSecond;
 
     m_frontLeftController = null;
     m_rearLeftController = null;

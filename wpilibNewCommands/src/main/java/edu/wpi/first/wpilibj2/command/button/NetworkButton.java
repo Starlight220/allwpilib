@@ -7,6 +7,9 @@ package edu.wpi.first.wpilibj2.command.button;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpiutil.ErrorMessages;
+
+import static edu.wpi.first.wpiutil.ErrorMessages.*;
 
 /** A {@link Button} that uses a {@link NetworkTable} boolean field. */
 public class NetworkButton extends Button {
@@ -18,7 +21,7 @@ public class NetworkButton extends Button {
    * @param entry The entry that is the value.
    */
   public NetworkButton(NetworkTableEntry entry) {
-    m_entry = entry;
+    m_entry = requireNonNullParam(entry, "entry", "NetworkButton");
   }
 
   /**

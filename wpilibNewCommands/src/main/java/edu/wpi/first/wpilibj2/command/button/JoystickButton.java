@@ -20,9 +20,8 @@ public class JoystickButton extends Button {
    * @param buttonNumber The button number (see {@link GenericHID#getRawButton(int) }
    */
   public JoystickButton(GenericHID joystick, int buttonNumber) {
-    requireNonNullParam(joystick, "joystick", "JoystickButton");
+    m_joystick = requireNonNullParam(joystick, "joystick", "JoystickButton");
 
-    m_joystick = joystick;
     m_buttonNumber = buttonNumber;
   }
 

@@ -31,7 +31,7 @@ public class SelectCommand extends CommandBase {
   private Command m_selectedCommand;
 
   /**
-   * Creates a new selectcommand.
+   * Creates a new SelectCommand.
    *
    * @param commands the map of commands to choose from
    * @param selector the selector to determine which command to run
@@ -52,7 +52,7 @@ public class SelectCommand extends CommandBase {
   }
 
   /**
-   * Creates a new selectcommand.
+   * Creates a new SelectCommand.
    *
    * @param toRun a supplier providing the command to run
    */
@@ -65,7 +65,7 @@ public class SelectCommand extends CommandBase {
   @Override
   public void initialize() {
     if (m_selector != null) {
-      if (!m_commands.keySet().contains(m_selector.get())) {
+      if (!m_commands.containsKey(m_selector.get())) {
         m_selectedCommand =
             new PrintCommand(
                 "SelectCommand selector value does not correspond to" + " any command!");

@@ -22,9 +22,7 @@ public class POVButton extends Button {
    * @param povNumber The POV number (see {@link GenericHID#getPOV(int)})
    */
   public POVButton(GenericHID joystick, int angle, int povNumber) {
-    requireNonNullParam(joystick, "joystick", "POVButton");
-
-    m_joystick = joystick;
+    m_joystick = requireNonNullParam(joystick, "joystick", "POVButton");
     m_angle = angle;
     m_povNumber = povNumber;
   }

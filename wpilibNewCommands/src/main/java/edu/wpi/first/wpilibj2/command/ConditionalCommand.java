@@ -40,8 +40,8 @@ public class ConditionalCommand extends CommandBase {
 
     CommandGroupBase.registerGroupedCommands(onTrue, onFalse);
 
-    m_onTrue = onTrue;
-    m_onFalse = onFalse;
+    m_onTrue = requireNonNullParam(onTrue, "onTrue", "ConditionalCommand");
+    m_onFalse = requireNonNullParam(onFalse, "onFalse", "ConditionalCommand");
     m_condition = requireNonNullParam(condition, "condition", "ConditionalCommand");
     m_requirements.addAll(m_onTrue.getRequirements());
     m_requirements.addAll(m_onFalse.getRequirements());
