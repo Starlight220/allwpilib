@@ -4,12 +4,11 @@
 
 package edu.wpi.first.wpilibj2.command.button;
 
+import static edu.wpi.first.wpiutil.ErrorMessages.*;
+
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpiutil.ErrorMessages;
-
-import static edu.wpi.first.wpiutil.ErrorMessages.*;
 
 /** A {@link Button} that uses a {@link NetworkTable} boolean field. */
 public class NetworkButton extends Button {

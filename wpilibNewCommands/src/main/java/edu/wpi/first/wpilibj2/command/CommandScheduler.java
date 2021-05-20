@@ -4,6 +4,8 @@
 
 package edu.wpi.first.wpilibj2.command;
 
+import static edu.wpi.first.wpiutil.ErrorMessages.requireNonNullParam;
+
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
@@ -16,11 +18,8 @@ import edu.wpi.first.wpilibj.Watchdog;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableBuilder;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-
 import java.util.*;
 import java.util.function.Consumer;
-
-import static edu.wpi.first.wpiutil.ErrorMessages.requireNonNullParam;
 
 /**
  * The scheduler responsible for running {@link Command}s. A Command-based robot should call {@link
@@ -354,7 +353,7 @@ public final class CommandScheduler implements Sendable, AutoCloseable {
    * @param defaultCommand the default command to associate with the subsystem
    */
   public void setDefaultCommand(Subsystem subsystem, Command defaultCommand) {
-    requireNonNullParam(subsystem, "defaultCommand","setDefaultCommand");
+    requireNonNullParam(subsystem, "defaultCommand", "setDefaultCommand");
     if (!defaultCommand.getRequirements().contains(subsystem)) {
       throw new IllegalArgumentException("Default commands must require their subsystem!");
     }

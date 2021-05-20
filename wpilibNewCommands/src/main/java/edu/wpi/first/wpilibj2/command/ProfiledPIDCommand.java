@@ -41,7 +41,8 @@ public class ProfiledPIDCommand extends CommandBase {
       BiConsumer<Double, State> useOutput,
       Subsystem... requirements) {
     m_controller = requireNonNullParam(controller, "controller", "ProfiledPIDCommand");
-    m_measurement = requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
+    m_measurement =
+        requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
     m_goal = requireNonNullParam(goalSource, "setpointSource", "ProfiledPIDCommand");
     m_useOutput = requireNonNullParam(useOutput, "useOutput", "ProfiledPIDCommand");
 
@@ -66,7 +67,8 @@ public class ProfiledPIDCommand extends CommandBase {
       Subsystem... requirements) {
 
     m_controller = requireNonNullParam(controller, "controller", "ProfiledPIDCommand");
-    m_measurement = requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
+    m_measurement =
+        requireNonNullParam(measurementSource, "measurementSource", "ProfiledPIDCommand");
     requireNonNullParam(goalSource, "goalSource", "ProfiledPIDCommand");
     m_goal = () -> new State(goalSource.getAsDouble(), 0);
     m_useOutput = requireNonNullParam(useOutput, "useOutput", "ProfiledPIDCommand");
