@@ -36,8 +36,8 @@ class DMASample;
  * to be zeroed before use.
  */
 class QuadratureEncoder : public CounterBase,
-                public wpi::Sendable,
-                public wpi::SendableHelper<QuadratureEncoder> {
+                          public wpi::Sendable,
+                          public wpi::SendableHelper<QuadratureEncoder> {
   friend class DMA;
   friend class DMASample;
 
@@ -73,14 +73,15 @@ class QuadratureEncoder : public CounterBase,
    *                         be double (2x) the spec'd count.
    */
   QuadratureEncoder(int aChannel, int bChannel, bool reverseDirection = false,
-          EncodingType encodingType = k4X);
+                    EncodingType encodingType = k4X);
 
   /**
    * QuadratureEncoder constructor.
    *
-   * Construct a QuadratureEncoder given a and b channels as digital inputs. This is used
-   * in the case where the digital inputs are shared. The QuadratureEncoder class will not
-   * allocate the digital inputs and assume that they already are counted.
+   * Construct a QuadratureEncoder given a and b channels as digital inputs.
+   * This is used in the case where the digital inputs are shared. The
+   * QuadratureEncoder class will not allocate the digital inputs and assume
+   * that they already are counted.
    *
    * The counter will start counting immediately.
    *
@@ -99,14 +100,16 @@ class QuadratureEncoder : public CounterBase,
    *                         be double (2x) the spec'd count.
    */
   QuadratureEncoder(DigitalSource* aSource, DigitalSource* bSource,
-          bool reverseDirection = false, EncodingType encodingType = k4X);
+                    bool reverseDirection = false,
+                    EncodingType encodingType = k4X);
 
   /**
    * QuadratureEncoder constructor.
    *
-   * Construct a QuadratureEncoder given a and b channels as digital inputs. This is used
-   * in the case where the digital inputs are shared. The QuadratureEncoder class will not
-   * allocate the digital inputs and assume that they already are counted.
+   * Construct a QuadratureEncoder given a and b channels as digital inputs.
+   * This is used in the case where the digital inputs are shared. The
+   * QuadratureEncoder class will not allocate the digital inputs and assume
+   * that they already are counted.
    *
    * The counter will start counting immediately.
    *
@@ -125,11 +128,13 @@ class QuadratureEncoder : public CounterBase,
    *                         be double (2x) the spec'd count.
    */
   QuadratureEncoder(DigitalSource& aSource, DigitalSource& bSource,
-          bool reverseDirection = false, EncodingType encodingType = k4X);
+                    bool reverseDirection = false,
+                    EncodingType encodingType = k4X);
 
   QuadratureEncoder(std::shared_ptr<DigitalSource> aSource,
-          std::shared_ptr<DigitalSource> bSource, bool reverseDirection = false,
-          EncodingType encodingType = k4X);
+                    std::shared_ptr<DigitalSource> bSource,
+                    bool reverseDirection = false,
+                    EncodingType encodingType = k4X);
 
   ~QuadratureEncoder() override;
 

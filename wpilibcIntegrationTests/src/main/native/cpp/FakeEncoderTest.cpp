@@ -22,7 +22,7 @@ class FakeEncoderTest : public testing::Test {
   frc::AnalogOutput m_indexOutput{TestBench::kAnalogOutputChannel};
 
   frc::QuadratureEncoder m_encoder{TestBench::kLoop1InputChannel,
-                         TestBench::kLoop2InputChannel};
+                                   TestBench::kLoop2InputChannel};
   frc::AnalogTrigger m_indexAnalogTrigger{TestBench::kFakeAnalogOutputChannel};
   std::shared_ptr<frc::AnalogTriggerOutput> m_indexAnalogTriggerOutput =
       m_indexAnalogTrigger.CreateOutput(frc::AnalogTriggerType::kState);
@@ -75,15 +75,17 @@ TEST_F(FakeEncoderTest, TestCountUp) {
   m_encoder.Reset();
   Simulate100QuadratureTicks();
 
-  EXPECT_DOUBLE_EQ(100.0, m_encoder.Get()) << "QuadratureEncoder did not count to 100.";
+  EXPECT_DOUBLE_EQ(100.0, m_encoder.Get())
+      << "QuadratureEncoder did not count to 100.";
 }
 
 /**
  * Test that the encoder can stay reset while the index source is high
  */
 TEST_F(FakeEncoderTest, TestResetWhileHigh) {
-  m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::QuadratureEncoder::IndexingType::kResetWhileHigh);
+  m_encoder.SetIndexSource(
+      *m_indexAnalogTriggerOutput,
+      frc::QuadratureEncoder::IndexingType::kResetWhileHigh);
 
   SetIndexLow();
   Simulate100QuadratureTicks();
@@ -98,8 +100,9 @@ TEST_F(FakeEncoderTest, TestResetWhileHigh) {
  * Test that the encoder can reset when the index source goes from low to high
  */
 TEST_F(FakeEncoderTest, TestResetOnRisingEdge) {
-  m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::QuadratureEncoder::IndexingType::kResetOnRisingEdge);
+  m_encoder.SetIndexSource(
+      *m_indexAnalogTriggerOutput,
+      frc::QuadratureEncoder::IndexingType::kResetOnRisingEdge);
 
   SetIndexLow();
   Simulate100QuadratureTicks();
@@ -114,8 +117,9 @@ TEST_F(FakeEncoderTest, TestResetOnRisingEdge) {
  * Test that the encoder can stay reset while the index source is low
  */
 TEST_F(FakeEncoderTest, TestResetWhileLow) {
-  m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::QuadratureEncoder::IndexingType::kResetWhileLow);
+  m_encoder.SetIndexSource(
+      *m_indexAnalogTriggerOutput,
+      frc::QuadratureEncoder::IndexingType::kResetWhileLow);
 
   SetIndexHigh();
   Simulate100QuadratureTicks();
@@ -130,8 +134,9 @@ TEST_F(FakeEncoderTest, TestResetWhileLow) {
  * Test that the encoder can reset when the index source goes from high to low
  */
 TEST_F(FakeEncoderTest, TestResetOnFallingEdge) {
-  m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::QuadratureEncoder::IndexingType::kResetOnFallingEdge);
+  m_encoder.SetIndexSource(
+      *m_indexAnalogTriggerOutput,
+      frc::QuadratureEncoder::IndexingType::kResetOnFallingEdge);
 
   SetIndexHigh();
   Simulate100QuadratureTicks();

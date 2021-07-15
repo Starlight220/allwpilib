@@ -8,8 +8,8 @@
 #include <frc/Counter.h>
 #include <frc/DigitalSource.h>
 #include <frc/DutyCycle.h>
-#include <frc/QuadratureEncoder.h>
 #include <frc/PWM.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/motorcontrol/PWMMotorController.h>
 
 #include <hal/DMA.h>
@@ -19,8 +19,8 @@
 #include "frc/Counter.h"
 #include "frc/DigitalSource.h"
 #include "frc/DutyCycle.h"
-#include "frc/QuadratureEncoder.h"
 #include "frc/Errors.h"
+#include "frc/QuadratureEncoder.h"
 
 using namespace frc;
 

@@ -29,7 +29,8 @@ namespace frc {
  * All encoders will immediately start counting - Reset() them if you need them
  * to be zeroed before use.
  */
-class WPI_DEPRECATED("Use QuadratureEncoder") Encoder : public QuadratureEncoder {
+class WPI_DEPRECATED("Use QuadratureEncoder") Encoder
+    : public QuadratureEncoder {
   /**
    * Encoder constructor.
    *

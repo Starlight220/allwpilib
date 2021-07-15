@@ -17,8 +17,9 @@
 
 using namespace frc;
 
-Encoder::Encoder(int aChannel, int bChannel, bool reverseDirection, EncodingType encodingType)
-         : QuadratureEncoder(aChannel, bChannel, reverseDirection, encodingType) {}
+Encoder::Encoder(int aChannel, int bChannel, bool reverseDirection,
+                 EncodingType encodingType)
+    : QuadratureEncoder(aChannel, bChannel, reverseDirection, encodingType) {}
 
 Encoder::Encoder(DigitalSource* aSource, DigitalSource* bSource,
                  bool reverseDirection, EncodingType encodingType)

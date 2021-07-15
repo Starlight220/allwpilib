@@ -16,7 +16,7 @@ frc::MecanumDriveWheelSpeeds Drivetrain::GetCurrentState() const {
 }
 
 void Drivetrain::SetSpeeds(const frc::MecanumDriveWheelSpeeds& wheelSpeeds) {
-  std::function<void(units::meters_per_second_t, const frc::Encoder&,
+  std::function<void(units::meters_per_second_t, const frc::QuadratureEncoder&,
                      frc2::PIDController&, frc::PWMSparkMax&)>
       calcAndSetSpeeds =
           [&m_feedforward = m_feedforward](units::meters_per_second_t speed,

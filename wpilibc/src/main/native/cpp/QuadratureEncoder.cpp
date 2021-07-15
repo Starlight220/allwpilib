@@ -17,8 +17,9 @@
 
 using namespace frc;
 
-QuadratureEncoder::QuadratureEncoder(int aChannel, int bChannel, bool reverseDirection,
-                 EncodingType encodingType) {
+QuadratureEncoder::QuadratureEncoder(int aChannel, int bChannel,
+                                     bool reverseDirection,
+                                     EncodingType encodingType) {
   m_aSource = std::make_shared<DigitalInput>(aChannel);
   m_bSource = std::make_shared<DigitalInput>(bChannel);
   InitEncoder(reverseDirection, encodingType);
@@ -26,8 +27,10 @@ QuadratureEncoder::QuadratureEncoder(int aChannel, int bChannel, bool reverseDir
   wpi::SendableRegistry::AddChild(this, m_bSource.get());
 }
 
-QuadratureEncoder::QuadratureEncoder(DigitalSource* aSource, DigitalSource* bSource,
-                 bool reverseDirection, EncodingType encodingType)
+QuadratureEncoder::QuadratureEncoder(DigitalSource* aSource,
+                                     DigitalSource* bSource,
+                                     bool reverseDirection,
+                                     EncodingType encodingType)
     : m_aSource(aSource, wpi::NullDeleter<DigitalSource>()),
       m_bSource(bSource, wpi::NullDeleter<DigitalSource>()) {
   if (!m_aSource) {
@@ -39,16 +42,19 @@ QuadratureEncoder::QuadratureEncoder(DigitalSource* aSource, DigitalSource* bSou
   InitEncoder(reverseDirection, encodingType);
 }
 
-QuadratureEncoder::QuadratureEncoder(DigitalSource& aSource, DigitalSource& bSource,
-                 bool reverseDirection, EncodingType encodingType)
+QuadratureEncoder::QuadratureEncoder(DigitalSource& aSource,
+                                     DigitalSource& bSource,
+                                     bool reverseDirection,
+                                     EncodingType encodingType)
     : m_aSource(&aSource, wpi::NullDeleter<DigitalSource>()),
       m_bSource(&bSource, wpi::NullDeleter<DigitalSource>()) {
   InitEncoder(reverseDirection, encodingType);
 }
 
 QuadratureEncoder::QuadratureEncoder(std::shared_ptr<DigitalSource> aSource,
-                 std::shared_ptr<DigitalSource> bSource, bool reverseDirection,
-                 EncodingType encodingType)
+                                     std::shared_ptr<DigitalSource> bSource,
+                                     bool reverseDirection,
+                                     EncodingType encodingType)
     : m_aSource(std::move(aSource)), m_bSource(std::move(bSource)) {
   if (!m_aSource) {
     throw FRC_MakeError(err::NullParameter, "{}", "aSource");
@@ -165,7 +171,8 @@ int QuadratureEncoder::GetSamplesToAverage() const {
   return result;
 }
 
-void QuadratureEncoder::SetIndexSource(int channel, QuadratureEncoder::IndexingType type) {
+void QuadratureEncoder::SetIndexSource(int channel,
+                                       QuadratureEncoder::IndexingType type) {
   // Force digital input if just given an index
   m_indexSource = std::make_shared<DigitalInput>(channel);
   wpi::SendableRegistry::AddChild(this, m_indexSource.get());
@@ -173,7 +180,7 @@ void QuadratureEncoder::SetIndexSource(int channel, QuadratureEncoder::IndexingT
 }
 
 void QuadratureEncoder::SetIndexSource(const DigitalSource& source,
-                             QuadratureEncoder::IndexingType type) {
+                                       QuadratureEncoder::IndexingType type) {
   int32_t status = 0;
   HAL_SetEncoderIndexSource(m_encoder, source.GetPortHandleForRouting(),
                             static_cast<HAL_AnalogTriggerType>(
@@ -212,7 +219,8 @@ void QuadratureEncoder::InitSendable(wpi::SendableBuilder& builder) {
       "Distance per Tick", [=] { return GetDistancePerPulse(); }, nullptr);
 }
 
-void QuadratureEncoder::InitEncoder(bool reverseDirection, EncodingType encodingType) {
+void QuadratureEncoder::InitEncoder(bool reverseDirection,
+                                    EncodingType encodingType) {
   int32_t status = 0;
   m_encoder = HAL_InitializeEncoder(
       m_aSource->GetPortHandleForRouting(),
@@ -227,7 +235,8 @@ void QuadratureEncoder::InitEncoder(bool reverseDirection, EncodingType encoding
 
   HAL_Report(HALUsageReporting::kResourceType_Encoder, GetFPGAIndex() + 1,
              encodingType);
-  wpi::SendableRegistry::AddLW(this, "QuadratureEncoder", m_aSource->GetChannel());
+  wpi::SendableRegistry::AddLW(this, "QuadratureEncoder",
+                               m_aSource->GetChannel());
 }
 
 double QuadratureEncoder::DecodingScaleFactor() const {

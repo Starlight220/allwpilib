@@ -3,8 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include <frc/AnalogPotentiometer.h>
-#include <frc/QuadratureEncoder.h>
 #include <frc/Joystick.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/TimedRobot.h>
 #include <frc/motorcontrol/PWMSparkMax.h>
 #include <frc/simulation/SimHooks.h>

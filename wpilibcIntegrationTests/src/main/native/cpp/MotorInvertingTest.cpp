@@ -42,20 +42,22 @@ class MotorInvertingTest
     switch (GetParam()) {
       case TEST_VICTOR:
         m_motorController = new frc::Victor(TestBench::kVictorChannel);
-        m_encoder = new frc::QuadratureEncoder(TestBench::kVictorEncoderChannelA,
-                                     TestBench::kVictorEncoderChannelB);
+        m_encoder =
+            new frc::QuadratureEncoder(TestBench::kVictorEncoderChannelA,
+                                       TestBench::kVictorEncoderChannelB);
         break;
 
       case TEST_JAGUAR:
         m_motorController = new frc::Jaguar(TestBench::kJaguarChannel);
-        m_encoder = new frc::QuadratureEncoder(TestBench::kJaguarEncoderChannelA,
-                                     TestBench::kJaguarEncoderChannelB);
+        m_encoder =
+            new frc::QuadratureEncoder(TestBench::kJaguarEncoderChannelA,
+                                       TestBench::kJaguarEncoderChannelB);
         break;
 
       case TEST_TALON:
         m_motorController = new frc::Talon(TestBench::kTalonChannel);
-        m_encoder = new frc::QuadratureEncoder(TestBench::kTalonEncoderChannelA,
-                                     TestBench::kTalonEncoderChannelB);
+        m_encoder = new frc::QuadratureEncoder(
+            TestBench::kTalonEncoderChannelA, TestBench::kTalonEncoderChannelB);
         break;
     }
   }

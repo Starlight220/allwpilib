@@ -58,11 +58,11 @@ void DriveTrain::Stop() {
   m_robotDrive.TankDrive(0.0, 0.0);
 }
 
-frc::Encoder& DriveTrain::GetLeftEncoder() {
+frc::QuadratureEncoder& DriveTrain::GetLeftEncoder() {
   return m_leftEncoder;
 }
 
-frc::Encoder& DriveTrain::GetRightEncoder() {
+frc::QuadratureEncoder& DriveTrain::GetRightEncoder() {
   return m_rightEncoder;
 }
 

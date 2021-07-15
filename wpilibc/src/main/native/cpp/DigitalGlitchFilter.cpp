@@ -14,8 +14,8 @@
 #include <wpi/sendable/SendableRegistry.h>
 
 #include "frc/Counter.h"
-#include "frc/QuadratureEncoder.h"
 #include "frc/Errors.h"
+#include "frc/QuadratureEncoder.h"
 #include "frc/SensorUtil.h"
 
 using namespace frc;

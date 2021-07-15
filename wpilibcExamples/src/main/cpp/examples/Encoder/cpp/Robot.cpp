@@ -51,17 +51,20 @@ class Robot : public frc::TimedRobot {
   }
 
   void TeleopPeriodic() override {
-    // Retrieve the net displacement of the QuadratureEncoder since the last Reset.
-    frc::SmartDashboard::PutNumber("QuadratureEncoder Distance", m_encoder.GetDistance());
+    // Retrieve the net displacement of the QuadratureEncoder since the last
+    // Reset.
+    frc::SmartDashboard::PutNumber("QuadratureEncoder Distance",
+                                   m_encoder.GetDistance());
 
     // Retrieve the current rate of the encoder.
-    frc::SmartDashboard::PutNumber("QuadratureEncoder Rate", m_encoder.GetRate());
+    frc::SmartDashboard::PutNumber("QuadratureEncoder Rate",
+                                   m_encoder.GetRate());
   }
 
  private:
   /**
-   * The QuadratureEncoder object is constructed with 4 parameters, the last two being
-   * optional.
+   * The QuadratureEncoder object is constructed with 4 parameters, the last two
+   * being optional.
    *
    * The first two parameters (1, 2 in this case) refer to the ports on the
    * roboRIO which the encoder uses. Because a quadrature encoder has two signal

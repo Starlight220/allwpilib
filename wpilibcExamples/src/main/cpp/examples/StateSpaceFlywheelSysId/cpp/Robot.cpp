@@ -3,8 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include <frc/DriverStation.h>
-#include <frc/QuadratureEncoder.h>
 #include <frc/GenericHID.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/StateSpaceUtil.h>
 #include <frc/TimedRobot.h>
 #include <frc/XboxController.h>

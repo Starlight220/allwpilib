@@ -2,8 +2,8 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include <frc/QuadratureEncoder.h>
 #include <frc/GenericHID.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/StateSpaceUtil.h>
 #include <frc/TimedRobot.h>
 #include <frc/XboxController.h>
