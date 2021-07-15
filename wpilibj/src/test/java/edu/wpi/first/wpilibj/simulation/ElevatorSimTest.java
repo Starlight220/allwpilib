@@ -12,7 +12,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.system.plant.LinearSystemId;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMVictorSPX;
 import org.junit.jupiter.api.Test;
@@ -34,7 +34,7 @@ public class ElevatorSimTest {
             VecBuilder.fill(0.01));
 
     var motor = new PWMVictorSPX(0);
-    var encoder = new Encoder(0, 1);
+    var encoder = new QuadratureEncoder(0, 1);
     var encoderSim = new EncoderSim(encoder);
 
     for (int i = 0; i < 100; i++) {
