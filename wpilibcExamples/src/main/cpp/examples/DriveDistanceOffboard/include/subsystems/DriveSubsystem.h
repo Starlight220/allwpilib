@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/controller/SimpleMotorFeedforward.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/trajectory/TrapezoidProfile.h>

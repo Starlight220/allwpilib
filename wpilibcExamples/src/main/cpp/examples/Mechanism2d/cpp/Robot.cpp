@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include <frc/AnalogPotentiometer.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/Joystick.h>
 #include <frc/TimedRobot.h>
 #include <frc/motorcontrol/PWMSparkMax.h>
@@ -50,7 +50,7 @@ class Robot : public frc::TimedRobot {
  private:
   frc::PWMSparkMax m_elevatorMotor{0};
   frc::PWMSparkMax m_wristMotor{1};
-  frc::Encoder m_elevatorEncoder{0, 1};
+  frc::QuadratureEncoder m_elevatorEncoder{0, 1};
   frc::AnalogPotentiometer m_wristPotentiometer{1, 90};
   frc::Joystick m_joystick{0};
 

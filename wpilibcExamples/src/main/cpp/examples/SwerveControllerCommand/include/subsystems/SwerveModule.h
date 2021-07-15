@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/controller/PIDController.h>
 #include <frc/controller/ProfiledPIDController.h>
 #include <frc/geometry/Rotation2d.h>
@@ -46,8 +46,8 @@ class SwerveModule {
   frc::Spark m_driveMotor;
   frc::Spark m_turningMotor;
 
-  frc::Encoder m_driveEncoder;
-  frc::Encoder m_turningEncoder;
+  frc::QuadratureEncoder m_driveEncoder;
+  frc::QuadratureEncoder m_turningEncoder;
 
   bool m_reverseDriveEncoder;
   bool m_reverseTurningEncoder;

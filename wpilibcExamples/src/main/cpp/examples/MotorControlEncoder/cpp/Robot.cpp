@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/Joystick.h>
 #include <frc/TimedRobot.h>
 #include <frc/motorcontrol/PWMSparkMax.h>
@@ -29,7 +29,7 @@ class Robot : public frc::TimedRobot {
    * robot mode.
    */
   void RobotPeriodic() override {
-    frc::SmartDashboard::PutNumber("Encoder", m_encoder.GetDistance());
+    frc::SmartDashboard::PutNumber("QuadratureEncoder", m_encoder.GetDistance());
   }
 
   void RobotInit() override {
@@ -41,7 +41,7 @@ class Robot : public frc::TimedRobot {
  private:
   frc::Joystick m_stick{0};
   frc::PWMSparkMax m_motor{0};
-  frc::Encoder m_encoder{0, 1};
+  frc::QuadratureEncoder m_encoder{0, 1};
 };
 
 #ifndef RUNNING_FRC_TESTS

@@ -5,7 +5,7 @@
 #pragma once
 
 #include <frc/ADXRS450_Gyro.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/geometry/Pose2d.h>
 #include <frc/kinematics/DifferentialDriveOdometry.h>
@@ -71,14 +71,14 @@ class DriveSubsystem : public frc2::SubsystemBase {
    *
    * @return the left drive encoder
    */
-  frc::Encoder& GetLeftEncoder();
+  frc::QuadratureEncoder& GetLeftEncoder();
 
   /**
    * Gets the right drive encoder.
    *
    * @return the right drive encoder
    */
-  frc::Encoder& GetRightEncoder();
+  frc::QuadratureEncoder& GetRightEncoder();
 
   /**
    * Sets the max output of the drive.  Useful for scaling the drive to drive
@@ -143,11 +143,11 @@ class DriveSubsystem : public frc2::SubsystemBase {
   frc::DifferentialDrive m_drive{m_leftMotors, m_rightMotors};
 
   // The left-side drive encoder
-  frc::Encoder m_leftEncoder{DriveConstants::kLeftEncoderPorts[0],
+  frc::QuadratureEncoder m_leftEncoder{DriveConstants::kLeftEncoderPorts[0],
                              DriveConstants::kLeftEncoderPorts[1]};
 
   // The right-side drive encoder
-  frc::Encoder m_rightEncoder{DriveConstants::kRightEncoderPorts[0],
+  frc::QuadratureEncoder m_rightEncoder{DriveConstants::kRightEncoderPorts[0],
                               DriveConstants::kRightEncoderPorts[1]};
 
   // The gyro sensor

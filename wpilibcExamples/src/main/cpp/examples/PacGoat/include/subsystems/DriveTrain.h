@@ -5,7 +5,7 @@
 #pragma once
 
 #include <frc/AnalogGyro.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/commands/Subsystem.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/motorcontrol/MotorControllerGroup.h>
@@ -45,13 +45,13 @@ class DriveTrain : public frc::Subsystem {
    * @return The encoder getting the distance and speed of left side of
    * the drivetrain.
    */
-  frc::Encoder& GetLeftEncoder();
+  frc::QuadratureEncoder& GetLeftEncoder();
 
   /**
    * @return The encoder getting the distance and speed of right side of
    * the drivetrain.
    */
-  frc::Encoder& GetRightEncoder();
+  frc::QuadratureEncoder& GetRightEncoder();
 
   /**
    * @return The current angle of the drivetrain.
@@ -70,7 +70,7 @@ class DriveTrain : public frc::Subsystem {
 
   frc::DifferentialDrive m_robotDrive{m_leftCIMs, m_rightCIMs};
 
-  frc::Encoder m_rightEncoder{1, 2, true, frc::Encoder::k4X};
-  frc::Encoder m_leftEncoder{3, 4, false, frc::Encoder::k4X};
+  frc::QuadratureEncoder m_rightEncoder{1, 2, true, frc::QuadratureEncoder::k4X};
+  frc::QuadratureEncoder m_leftEncoder{3, 4, false, frc::QuadratureEncoder::k4X};
   frc::AnalogGyro m_gyro{0};
 };

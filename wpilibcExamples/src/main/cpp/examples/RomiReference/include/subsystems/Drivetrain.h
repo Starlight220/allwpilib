@@ -5,7 +5,7 @@
 #pragma once
 
 #include <frc/BuiltInAccelerometer.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/drive/DifferentialDrive.h>
 #include <frc/motorcontrol/Spark.h>
 #include <frc2/command/SubsystemBase.h>
@@ -112,8 +112,8 @@ class Drivetrain : public frc2::SubsystemBase {
   frc::Spark m_leftMotor{0};
   frc::Spark m_rightMotor{1};
 
-  frc::Encoder m_leftEncoder{4, 5};
-  frc::Encoder m_rightEncoder{6, 7};
+  frc::QuadratureEncoder m_leftEncoder{4, 5};
+  frc::QuadratureEncoder m_rightEncoder{6, 7};
 
   frc::DifferentialDrive m_drive{m_leftMotor, m_rightMotor};
 

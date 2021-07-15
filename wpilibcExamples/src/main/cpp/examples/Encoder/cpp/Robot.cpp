@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/TimedRobot.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <wpi/numbers>
@@ -51,16 +51,16 @@ class Robot : public frc::TimedRobot {
   }
 
   void TeleopPeriodic() override {
-    // Retrieve the net displacement of the Encoder since the last Reset.
-    frc::SmartDashboard::PutNumber("Encoder Distance", m_encoder.GetDistance());
+    // Retrieve the net displacement of the QuadratureEncoder since the last Reset.
+    frc::SmartDashboard::PutNumber("QuadratureEncoder Distance", m_encoder.GetDistance());
 
     // Retrieve the current rate of the encoder.
-    frc::SmartDashboard::PutNumber("Encoder Rate", m_encoder.GetRate());
+    frc::SmartDashboard::PutNumber("QuadratureEncoder Rate", m_encoder.GetRate());
   }
 
  private:
   /**
-   * The Encoder object is constructed with 4 parameters, the last two being
+   * The QuadratureEncoder object is constructed with 4 parameters, the last two being
    * optional.
    *
    * The first two parameters (1, 2 in this case) refer to the ports on the
@@ -75,7 +75,7 @@ class Robot : public frc::TimedRobot {
    * and defaults to k4X. Faster (k4X) encoding gives greater positional
    * precision but more noise in the rate.
    */
-  frc::Encoder m_encoder{1, 2, false, frc::Encoder::k4X};
+  frc::QuadratureEncoder m_encoder{1, 2, false, frc::QuadratureEncoder::k4X};
 };
 
 #ifndef RUNNING_FRC_TESTS

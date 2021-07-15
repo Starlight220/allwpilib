@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include <frc/AnalogPotentiometer.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/Joystick.h>
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
@@ -45,8 +45,8 @@ class Robot : public frc::TimedRobot {
         driveBaseTab.GetLayout("List Layout", "Encoders")
             .WithPosition(0, 0)
             .WithSize(2, 2);
-    encoders.Add("Left Encoder", m_leftEncoder);
-    encoders.Add("Right Encoder", m_rightEncoder);
+    encoders.Add("Left QuadratureEncoder", m_leftEncoder);
+    encoders.Add("Right QuadratureEncoder", m_rightEncoder);
 
     // Create a 'Elevator' tab and add the potentiometer and elevator motor to
     // it.
@@ -69,8 +69,8 @@ class Robot : public frc::TimedRobot {
 
   frc::Joystick m_stick{0};
 
-  frc::Encoder m_leftEncoder{0, 1};
-  frc::Encoder m_rightEncoder{2, 3};
+  frc::QuadratureEncoder m_leftEncoder{0, 1};
+  frc::QuadratureEncoder m_rightEncoder{2, 3};
   frc::AnalogPotentiometer m_ElevatorPot{0};
 
   nt::NetworkTableEntry m_maxSpeed;

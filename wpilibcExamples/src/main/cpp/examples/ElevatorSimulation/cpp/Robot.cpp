@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/GenericHID.h>
 #include <frc/Joystick.h>
 #include <frc/RobotController.h>
@@ -47,7 +47,7 @@ class Robot : public frc::TimedRobot {
 
   // Standard classes for controlling our elevator
   frc2::PIDController m_controller{kElevatorKp, 0, 0};
-  frc::Encoder m_encoder{kEncoderAChannel, kEncoderBChannel};
+  frc::QuadratureEncoder m_encoder{kEncoderAChannel, kEncoderBChannel};
   frc::PWMSparkMax m_motor{kMotorPort};
   frc::Joystick m_joystick{kJoystickPort};
 

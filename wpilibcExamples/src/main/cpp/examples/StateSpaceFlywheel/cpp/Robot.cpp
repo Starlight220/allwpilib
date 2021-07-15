@@ -3,7 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include <frc/DriverStation.h>
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/GenericHID.h>
 #include <frc/StateSpaceUtil.h>
 #include <frc/TimedRobot.h>
@@ -75,7 +75,7 @@ class Robot : public frc::TimedRobot {
                                         m_observer, 12_V, 20_ms};
 
   // An encoder set up to measure flywheel velocity in radians per second.
-  frc::Encoder m_encoder{kEncoderAChannel, kEncoderBChannel};
+  frc::QuadratureEncoder m_encoder{kEncoderAChannel, kEncoderBChannel};
 
   frc::PWMSparkMax m_motor{kMotorPort};
   frc::XboxController m_joystick{kJoystickPort};

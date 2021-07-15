@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include <frc/Encoder.h>
+#include <frc/QuadratureEncoder.h>
 #include <frc/GenericHID.h>
 #include <frc/StateSpaceUtil.h>
 #include <frc/TimedRobot.h>
@@ -83,7 +83,7 @@ class Robot : public frc::TimedRobot {
                                         12_V, 20_ms};
 
   // An encoder set up to measure arm position in radians per second.
-  frc::Encoder m_encoder{kEncoderAChannel, kEncoderBChannel};
+  frc::QuadratureEncoder m_encoder{kEncoderAChannel, kEncoderBChannel};
 
   frc::PWMSparkMax m_motor{kMotorPort};
   frc::XboxController m_joystick{kJoystickPort};
