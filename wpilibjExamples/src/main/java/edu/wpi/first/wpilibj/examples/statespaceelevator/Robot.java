@@ -16,8 +16,8 @@ import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.system.plant.LinearSystemId;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -92,7 +92,8 @@ public class Robot extends TimedRobot {
       new LinearSystemLoop<>(m_elevatorPlant, m_controller, m_observer, 12.0, 0.020);
 
   // An encoder set up to measure elevator height in meters.
-  private final Encoder m_encoder = new Encoder(kEncoderAChannel, kEncoderBChannel);
+  private final QuadratureEncoder m_encoder =
+      new QuadratureEncoder(kEncoderAChannel, kEncoderBChannel);
 
   private final MotorController m_motor = new PWMSparkMax(kMotorPort);
 

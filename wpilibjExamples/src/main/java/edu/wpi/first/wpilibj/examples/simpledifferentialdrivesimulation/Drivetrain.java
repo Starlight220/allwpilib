@@ -16,7 +16,7 @@ import edu.wpi.first.math.system.LinearSystem;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.system.plant.LinearSystemId;
 import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -46,8 +46,8 @@ public class Drivetrain {
   private final MotorControllerGroup m_rightGroup =
       new MotorControllerGroup(m_rightLeader, m_rightFollower);
 
-  private final Encoder m_leftEncoder = new Encoder(0, 1);
-  private final Encoder m_rightEncoder = new Encoder(2, 3);
+  private final QuadratureEncoder m_leftEncoder = new QuadratureEncoder(0, 1);
+  private final QuadratureEncoder m_rightEncoder = new QuadratureEncoder(2, 3);
 
   private final PIDController m_leftPIDController = new PIDController(8.5, 0, 0);
   private final PIDController m_rightPIDController = new PIDController(8.5, 0, 0);

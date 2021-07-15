@@ -5,8 +5,8 @@
 package edu.wpi.first.wpilibj.examples.mechanism2d;
 
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj.smartdashboard.Mechanism2d;
@@ -28,7 +28,7 @@ public class Robot extends TimedRobot {
   private final PWMSparkMax m_elevatorMotor = new PWMSparkMax(0);
   private final PWMSparkMax m_wristMotor = new PWMSparkMax(1);
   private final AnalogPotentiometer m_wristPot = new AnalogPotentiometer(1, 90);
-  private final Encoder m_elevatorEncoder = new Encoder(0, 1);
+  private final QuadratureEncoder m_elevatorEncoder = new QuadratureEncoder(0, 1);
   private final Joystick m_joystick = new Joystick(0);
 
   private MechanismLigament2d m_elevator;

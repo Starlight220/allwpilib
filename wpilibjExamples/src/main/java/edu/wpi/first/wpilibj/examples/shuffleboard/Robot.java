@@ -6,7 +6,7 @@ package edu.wpi.first.wpilibj.examples.shuffleboard;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 public class Robot extends TimedRobot {
   private final DifferentialDrive m_tankDrive =
       new DifferentialDrive(new PWMSparkMax(0), new PWMSparkMax(1));
-  private final Encoder m_leftEncoder = new Encoder(0, 1);
-  private final Encoder m_rightEncoder = new Encoder(2, 3);
+  private final QuadratureEncoder m_leftEncoder = new QuadratureEncoder(0, 1);
+  private final QuadratureEncoder m_rightEncoder = new QuadratureEncoder(2, 3);
 
   private final PWMSparkMax m_elevatorMotor = new PWMSparkMax(2);
   private final AnalogPotentiometer m_elevatorPot = new AnalogPotentiometer(0);

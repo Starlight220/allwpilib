@@ -8,8 +8,8 @@ import edu.wpi.first.math.VecBuilder;
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.system.plant.DCMotor;
 import edu.wpi.first.math.util.Units;
-import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
@@ -42,7 +42,8 @@ public class Robot extends TimedRobot {
 
   // Standard classes for controlling our elevator
   private final PIDController m_controller = new PIDController(kElevatorKp, 0, 0);
-  private final Encoder m_encoder = new Encoder(kEncoderAChannel, kEncoderBChannel);
+  private final QuadratureEncoder m_encoder =
+      new QuadratureEncoder(kEncoderAChannel, kEncoderBChannel);
   private final PWMSparkMax m_motor = new PWMSparkMax(kMotorPort);
   private final Joystick m_joystick = new Joystick(kJoystickPort);
 

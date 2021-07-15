@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DMA;
 import edu.wpi.first.wpilibj.DMASample;
 import edu.wpi.first.wpilibj.DigitalOutput;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -27,7 +27,7 @@ public class Robot extends TimedRobot {
   private AnalogInput m_analogInput;
 
   // Encoder to read with DMA
-  private Encoder m_encoder;
+  private QuadratureEncoder m_encoder;
 
   @Override
   public void robotInit() {
@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
     m_dmaSample = new DMASample();
     m_dmaTrigger = new DigitalOutput(2);
     m_analogInput = new AnalogInput(0);
-    m_encoder = new Encoder(0, 1);
+    m_encoder = new QuadratureEncoder(0, 1);
 
     // Trigger on falling edge of dma trigger output
     m_dma.setExternalTrigger(m_dmaTrigger, false, true);

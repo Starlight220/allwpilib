@@ -5,7 +5,7 @@
 package edu.wpi.first.wpilibj.examples.romireference.subsystems;
 
 import edu.wpi.first.wpilibj.BuiltInAccelerometer;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.examples.romireference.sensors.RomiGyro;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
@@ -22,8 +22,8 @@ public class Drivetrain extends SubsystemBase {
 
   // The Romi has onboard encoders that are hardcoded
   // to use DIO pins 4/5 and 6/7 for the left and right
-  private final Encoder m_leftEncoder = new Encoder(4, 5);
-  private final Encoder m_rightEncoder = new Encoder(6, 7);
+  private final QuadratureEncoder m_leftEncoder = new QuadratureEncoder(4, 5);
+  private final QuadratureEncoder m_rightEncoder = new QuadratureEncoder(6, 7);
 
   // Set up the differential drive controller
   private final DifferentialDrive m_diffDrive = new DifferentialDrive(m_leftMotor, m_rightMotor);

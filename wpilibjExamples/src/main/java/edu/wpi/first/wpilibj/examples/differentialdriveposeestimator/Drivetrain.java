@@ -14,7 +14,7 @@ import edu.wpi.first.math.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.math.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -34,8 +34,8 @@ public class Drivetrain {
   private final MotorController m_rightLeader = new PWMSparkMax(3);
   private final MotorController m_rightFollower = new PWMSparkMax(4);
 
-  private final Encoder m_leftEncoder = new Encoder(0, 1);
-  private final Encoder m_rightEncoder = new Encoder(2, 3);
+  private final QuadratureEncoder m_leftEncoder = new QuadratureEncoder(0, 1);
+  private final QuadratureEncoder m_rightEncoder = new QuadratureEncoder(2, 3);
 
   private final MotorControllerGroup m_leftGroup =
       new MotorControllerGroup(m_leftLeader, m_leftFollower);
