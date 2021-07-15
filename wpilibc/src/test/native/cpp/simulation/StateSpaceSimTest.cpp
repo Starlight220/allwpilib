@@ -7,7 +7,7 @@
 #include <units/angular_acceleration.h>
 #include <units/angular_velocity.h>
 
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 #include "frc/RobotController.h"
 #include "frc/controller/PIDController.h"
 #include "frc/controller/SimpleMotorFeedforward.h"
@@ -32,7 +32,7 @@ TEST(StateSpaceSimTest, TestFlywheelSim) {
   frc2::PIDController controller{0.2, 0.0, 0.0};
   frc::SimpleMotorFeedforward<units::radian> feedforward{
       0_V, 0.02_V / 1_rad_per_s, 0.01_V / 1_rad_per_s_sq};
-  frc::Encoder encoder{0, 1};
+  frc::QuadratureEncoder encoder{0, 1};
   frc::sim::EncoderSim encoderSim{encoder};
   frc::PWMVictorSPX motor{0};
 

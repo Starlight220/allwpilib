@@ -6,7 +6,7 @@
 
 #include <units/time.h>
 
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 #include "frc/RobotController.h"
 #include "frc/StateSpaceUtil.h"
 #include "frc/controller/PIDController.h"
@@ -25,7 +25,7 @@ TEST(ElevatorSim, StateSpaceSim) {
   frc2::PIDController controller(10, 0.0, 0.0);
 
   frc::PWMVictorSPX motor(0);
-  frc::Encoder encoder(0, 1);
+  frc::QuadratureEncoder encoder(0, 1);
   frc::sim::EncoderSim encoderSim(encoder);
 
   for (size_t i = 0; i < 100; ++i) {

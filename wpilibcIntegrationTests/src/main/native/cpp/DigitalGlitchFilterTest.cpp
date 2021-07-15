@@ -6,7 +6,7 @@
 
 #include "frc/Counter.h"
 #include "frc/DigitalInput.h"
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 #include "gtest/gtest.h"
 
 /**
@@ -21,7 +21,7 @@ TEST(DigitalGlitchFilterTest, BasicTest) {
   frc::DigitalInput input2{2};
   frc::DigitalInput input3{3};
   frc::DigitalInput input4{4};
-  frc::Encoder encoder5{5, 6};
+  frc::QuadratureEncoder encoder5{5, 6};
   frc::Counter counter7{7};
 
   // Check that we can make a single filter and set the period.

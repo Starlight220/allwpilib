@@ -5,7 +5,7 @@
 #include <units/time.h>
 
 #include "TestBench.h"
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 #include "frc/Timer.h"
 #include "frc/motorcontrol/Jaguar.h"
 #include "frc/motorcontrol/Talon.h"
@@ -36,25 +36,25 @@ class MotorInvertingTest
     : public testing::TestWithParam<MotorInvertingTestType> {
  protected:
   frc::MotorController* m_motorController;
-  frc::Encoder* m_encoder;
+  frc::QuadratureEncoder* m_encoder;
 
   MotorInvertingTest() {
     switch (GetParam()) {
       case TEST_VICTOR:
         m_motorController = new frc::Victor(TestBench::kVictorChannel);
-        m_encoder = new frc::Encoder(TestBench::kVictorEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kVictorEncoderChannelA,
                                      TestBench::kVictorEncoderChannelB);
         break;
 
       case TEST_JAGUAR:
         m_motorController = new frc::Jaguar(TestBench::kJaguarChannel);
-        m_encoder = new frc::Encoder(TestBench::kJaguarEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kJaguarEncoderChannelA,
                                      TestBench::kJaguarEncoderChannelB);
         break;
 
       case TEST_TALON:
         m_motorController = new frc::Talon(TestBench::kTalonChannel);
-        m_encoder = new frc::Encoder(TestBench::kTalonEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kTalonEncoderChannelA,
                                      TestBench::kTalonEncoderChannelB);
         break;
     }

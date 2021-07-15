@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-#include "frc/Encoder.h"  // NOLINT(build/include_order)
+#include "frc/QuadratureEncoder.h"  // NOLINT(build/include_order)
 
 #include <units/time.h>
 
@@ -21,7 +21,7 @@ class FakeEncoderTest : public testing::Test {
   frc::DigitalOutput m_outputB{TestBench::kLoop1OutputChannel};
   frc::AnalogOutput m_indexOutput{TestBench::kAnalogOutputChannel};
 
-  frc::Encoder m_encoder{TestBench::kLoop1InputChannel,
+  frc::QuadratureEncoder m_encoder{TestBench::kLoop1InputChannel,
                          TestBench::kLoop2InputChannel};
   frc::AnalogTrigger m_indexAnalogTrigger{TestBench::kFakeAnalogOutputChannel};
   std::shared_ptr<frc::AnalogTriggerOutput> m_indexAnalogTriggerOutput =
@@ -75,7 +75,7 @@ TEST_F(FakeEncoderTest, TestCountUp) {
   m_encoder.Reset();
   Simulate100QuadratureTicks();
 
-  EXPECT_DOUBLE_EQ(100.0, m_encoder.Get()) << "Encoder did not count to 100.";
+  EXPECT_DOUBLE_EQ(100.0, m_encoder.Get()) << "QuadratureEncoder did not count to 100.";
 }
 
 /**
@@ -83,7 +83,7 @@ TEST_F(FakeEncoderTest, TestCountUp) {
  */
 TEST_F(FakeEncoderTest, TestResetWhileHigh) {
   m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::Encoder::IndexingType::kResetWhileHigh);
+                           frc::QuadratureEncoder::IndexingType::kResetWhileHigh);
 
   SetIndexLow();
   Simulate100QuadratureTicks();
@@ -99,7 +99,7 @@ TEST_F(FakeEncoderTest, TestResetWhileHigh) {
  */
 TEST_F(FakeEncoderTest, TestResetOnRisingEdge) {
   m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::Encoder::IndexingType::kResetOnRisingEdge);
+                           frc::QuadratureEncoder::IndexingType::kResetOnRisingEdge);
 
   SetIndexLow();
   Simulate100QuadratureTicks();
@@ -115,7 +115,7 @@ TEST_F(FakeEncoderTest, TestResetOnRisingEdge) {
  */
 TEST_F(FakeEncoderTest, TestResetWhileLow) {
   m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::Encoder::IndexingType::kResetWhileLow);
+                           frc::QuadratureEncoder::IndexingType::kResetWhileLow);
 
   SetIndexHigh();
   Simulate100QuadratureTicks();
@@ -131,7 +131,7 @@ TEST_F(FakeEncoderTest, TestResetWhileLow) {
  */
 TEST_F(FakeEncoderTest, TestResetOnFallingEdge) {
   m_encoder.SetIndexSource(*m_indexAnalogTriggerOutput,
-                           frc::Encoder::IndexingType::kResetOnFallingEdge);
+                           frc::QuadratureEncoder::IndexingType::kResetOnFallingEdge);
 
   SetIndexHigh();
   Simulate100QuadratureTicks();

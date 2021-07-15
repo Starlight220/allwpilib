@@ -7,7 +7,7 @@
 #include <units/time.h>
 
 #include "TestBench.h"
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 #include "frc/Notifier.h"
 #include "frc/Timer.h"
 #include "frc/controller/PIDController.h"
@@ -44,26 +44,26 @@ static constexpr auto kMotorTime = 0.5_s;
 class MotorEncoderTest : public testing::TestWithParam<MotorEncoderTestType> {
  protected:
   frc::MotorController* m_motorController;
-  frc::Encoder* m_encoder;
+  frc::QuadratureEncoder* m_encoder;
   frc::LinearFilter<double>* m_filter;
 
   MotorEncoderTest() {
     switch (GetParam()) {
       case TEST_VICTOR:
         m_motorController = new frc::Victor(TestBench::kVictorChannel);
-        m_encoder = new frc::Encoder(TestBench::kVictorEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kVictorEncoderChannelA,
                                      TestBench::kVictorEncoderChannelB);
         break;
 
       case TEST_JAGUAR:
         m_motorController = new frc::Jaguar(TestBench::kJaguarChannel);
-        m_encoder = new frc::Encoder(TestBench::kJaguarEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kJaguarEncoderChannelA,
                                      TestBench::kJaguarEncoderChannelB);
         break;
 
       case TEST_TALON:
         m_motorController = new frc::Talon(TestBench::kTalonChannel);
-        m_encoder = new frc::Encoder(TestBench::kTalonEncoderChannelA,
+        m_encoder = new frc::QuadratureEncoder(TestBench::kTalonEncoderChannelA,
                                      TestBench::kTalonEncoderChannelB);
         break;
     }
@@ -97,7 +97,7 @@ TEST_P(MotorEncoderTest, Increment) {
 
   /* The encoder should be positive now */
   EXPECT_GT(m_encoder->Get(), 0)
-      << "Encoder should have incremented after the motor moved";
+      << "QuadratureEncoder should have incremented after the motor moved";
 }
 
 /**
@@ -113,7 +113,7 @@ TEST_P(MotorEncoderTest, Decrement) {
 
   /* The encoder should be positive now */
   EXPECT_LT(m_encoder->Get(), 0.0)
-      << "Encoder should have decremented after the motor moved";
+      << "QuadratureEncoder should have decremented after the motor moved";
 }
 
 /**
@@ -192,7 +192,7 @@ TEST_P(MotorEncoderTest, VelocityPIDController) {
 TEST_P(MotorEncoderTest, Reset) {
   Reset();
 
-  EXPECT_EQ(0, m_encoder->Get()) << "Encoder did not reset to 0";
+  EXPECT_EQ(0, m_encoder->Get()) << "QuadratureEncoder did not reset to 0";
 }
 
 INSTANTIATE_TEST_SUITE_P(Test, MotorEncoderTest,
