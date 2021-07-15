@@ -232,12 +232,12 @@ public enum BuiltInWidgets implements WidgetType {
    */
   kSplitButtonChooser("Split Button Chooser"),
   /**
-   * Displays an {@link edu.wpi.first.wpilibj.Encoder} displaying its speed, total traveled
+   * Displays an {@link edu.wpi.first.wpilibj.QuadratureEncoder} displaying its speed, total traveled
    * distance, and its distance per tick. <br>
    * Supported types:
    *
    * <ul>
-   *   <li>{@link edu.wpi.first.wpilibj.Encoder}
+   *   <li>{@link edu.wpi.first.wpilibj.QuadratureEncoder}
    * </ul>
    *
    * <br>

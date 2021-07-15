@@ -31,11 +31,11 @@ public class DMA implements AutoCloseable {
     DMAJNI.setTimedTriggerCycles(m_dmaHandle, cycles);
   }
 
-  public void addEncoder(Encoder encoder) {
+  public void addEncoder(QuadratureEncoder encoder) {
     DMAJNI.addEncoder(m_dmaHandle, encoder.m_encoder);
   }
 
-  public void addEncoderPeriod(Encoder encoder) {
+  public void addEncoderPeriod(QuadratureEncoder encoder) {
     DMAJNI.addEncoderPeriod(m_dmaHandle, encoder.m_encoder);
   }
 

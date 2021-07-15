@@ -76,7 +76,7 @@ public class DigitalGlitchFilter implements Sendable, AutoCloseable {
    *
    * @param input The Encoder to add.
    */
-  public void add(Encoder input) {
+  public void add(QuadratureEncoder input) {
     add(input.m_aSource);
     add(input.m_bSource);
   }
@@ -105,7 +105,7 @@ public class DigitalGlitchFilter implements Sendable, AutoCloseable {
    *
    * @param input the Encoder to stop filtering.
    */
-  public void remove(Encoder input) {
+  public void remove(QuadratureEncoder input) {
     remove(input.m_aSource);
     remove(input.m_bSource);
   }

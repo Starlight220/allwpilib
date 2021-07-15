@@ -6,7 +6,7 @@ package edu.wpi.first.wpilibj.simulation;
 
 import edu.wpi.first.hal.simulation.EncoderDataJNI;
 import edu.wpi.first.hal.simulation.NotifyCallback;
-import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.QuadratureEncoder;
 import java.util.NoSuchElementException;
 
 /** Class to control a simulated encoder. */
@@ -18,7 +18,7 @@ public class EncoderSim {
    *
    * @param encoder Encoder to simulate
    */
-  public EncoderSim(Encoder encoder) {
+  public EncoderSim(QuadratureEncoder encoder) {
     m_index = encoder.getFPGAIndex();
   }
 

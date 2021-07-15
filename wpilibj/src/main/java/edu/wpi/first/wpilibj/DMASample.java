@@ -65,7 +65,7 @@ public class DMASample {
     return getTime() * 1.0e-6;
   }
 
-  public int getEncoderRaw(Encoder encoder) {
+  public int getEncoderRaw(QuadratureEncoder encoder) {
     return m_dmaSample.getEncoder(encoder.m_encoder);
   }
 
@@ -75,14 +75,14 @@ public class DMASample {
    * @param encoder the encoder to use to read
    * @return the distance
    */
-  public double getEncoderDistance(Encoder encoder) {
+  public double getEncoderDistance(QuadratureEncoder encoder) {
     double val = getEncoderRaw(encoder);
     val *= encoder.getDecodingScaleFactor();
     val *= encoder.getDistancePerPulse();
     return val;
   }
 
-  public int getEncoderPeriodRaw(Encoder encoder) {
+  public int getEncoderPeriodRaw(QuadratureEncoder encoder) {
     return m_dmaSample.getEncoderPeriod(encoder.m_encoder);
   }
 
