@@ -10,12 +10,12 @@
 
 #include <hal/simulation/EncoderData.h>
 
-#include "frc/Encoder.h"
+#include "frc/QuadratureEncoder.h"
 
 using namespace frc;
 using namespace frc::sim;
 
-EncoderSim::EncoderSim(const Encoder& encoder)
+EncoderSim::EncoderSim(const QuadratureEncoder& encoder)
     : m_index{encoder.GetFPGAIndex()} {}
 
 EncoderSim EncoderSim::CreateForChannel(int channel) {
